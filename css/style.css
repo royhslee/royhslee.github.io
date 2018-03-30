@@ -1,0 +1,160 @@
+/*
+Project Name: Photo Calendar Organizer
+Client: FEWD-34
+Author: HYUN LEE
+Developer @GA in LA
+*/
+
+
+/******************************************
+/* SETUP
+/*******************************************/
+
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+
+header {
+  display: flex;  
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+
+#logo {
+  font-size: 2em;
+  width: 70%;
+
+}
+
+nav {
+  display: flex;
+  width: 30%
+  justify-content: right;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+nav > div {
+ padding: 10px 10px;
+
+}
+
+#container{
+  width: 100%;
+  height: 500px;
+  border: 1px solid black;
+}
+
+h2 {
+  font-size: 2em;
+}
+.weekdays {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+
+}
+li {
+  font-size: 1.5em;
+
+}
+
+.date {
+  width: 100%;
+  height: 500px;
+  border: 1px solid black;
+}
+footer {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/*jQuery Calendar Style*/
+.ui-datepicker-calendar{
+  margin: 0 auto;
+ 
+}
+/*Header*/
+.ui-datepicker-header {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d6d6d6;
+}
+ 
+.ui-datepicker-title { 
+    text-align: center; 
+}
+ 
+.ui-datepicker-month {
+    position: relative;
+    padding-right: 15px;
+    color: #565656;
+    font-size: 3em;
+}
+ 
+.ui-datepicker-year {
+    padding-left: 8px;
+    color: #a8a8a8;
+    font-size: 3em;
+}
+
+/* calendar body */
+.ui-datepicker-calendar th {
+    padding-top: 15px;
+    padding-bottom: 10px;
+ 
+    text-align: center;
+    font-weight: normal;
+    color: #a8a8a8;
+}
+
+.ui-datepicker-calendar td {
+    padding: 70px 70px;
+    border: 1px solid rgb(200,200,200,0.7);
+    text-align: center;
+    line-height: 26px;
+}
+ 
+.ui-datepicker-calendar .ui-state-default {
+    display: block;
+    width: 26px;
+    outline: none;
+ 
+    text-decoration: none;
+    color: #a8a8a8;
+ 
+    border: 1px solid transparent;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+    color: #6a9113;
+    border: 1px solid #6a9113;
+}
+ 
+.ui-datepicker-other-month .ui-state-default { 
+    color: #565656; 
+}
