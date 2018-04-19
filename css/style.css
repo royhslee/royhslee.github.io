@@ -33,12 +33,55 @@ Developer @GA in LA
 /*******************************************/
 body {
   font-family: 'Pontano Sans', sans-serif;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 16px;
+  margin: 0 auto;
+  background-color: rgba(239,229,229,0.8);
+}
+#logo {
+  text-align: center
+}
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  font-size: 2em;
 }
 
+h2 {
+  font-size: 1em;
+  margin: 0 auto;
+}
+.play {
+  background: center/cover no-repeat url("../icon/play.png");
+}
+.pause {
+  background: center/cover no-repeat url("../icon/pause.png");
+}
+.stop {
+  background: center/cover no-repeat url("../icon/stop.png") 
+}
+.play, .pause, .stop {
+    display: none; ;
+    border: none;
+    height: 0.8em;
+    width: 0.8em;
+    color: white;
+    text-align: center;
+    text-decoration: none;  
+    font-size: 2em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.play:active, .stop:active{
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
 
 header {
-  display: flex;  
+  display: block;
   width: 100%;
+  margin: 0 auto;
   flex-direction: row;
   align-items: center;
 }
@@ -46,31 +89,81 @@ header {
 #logo {
   font-size: 2em;
   width: 70%;
+  margin: 10px auto;
 
 }
 
-nav {
-  display: flex;
-  width: 30%
-  justify-content: right;
-  align-items: center;
-  font-size: 1.5em;
-}
 
-nav > div {
- padding: 10px 10px;
-
-}
-
-#container{
+.container{
   width: 100%;
-  height: 500px;
-  border: 1px solid black;
+  position: relative;
+  border-bottom: 1px solid rgba(200,200,200, 0.8)
 }
 
-h2 {
-  font-size: 2em;
+
+
+/* Main Slideshow */
+.
+
+.slideshow {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
 }
+figure {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: 1s opacity;
+
+}
+figure.show {
+  opacity: 1;
+  position: static;
+  transition: 1s opacity;
+
+}
+
+#slideImage {
+  max-width: 100%;
+
+}
+
+/* Images Next & previous buttons */
+.prev, .next {
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 4em;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+   z-index: 999;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
 .weekdays {
   width: 100%;
   display: flex;
@@ -83,11 +176,7 @@ li {
 
 }
 
-.date {
-  width: 100%;
-  height: 500px;
-  border: 1px solid black;
-}
+
 footer {
   text-align: center;
   padding: 20px 0;
@@ -95,15 +184,17 @@ footer {
 
 /*jQuery Calendar Style*/
 .ui-datepicker-calendar{
-  margin: 0 auto;
- 
+  margin: 0 auto; 
 }
+
 /*Header*/
 .ui-datepicker-header {
+
     position: relative;
     padding-bottom: 10px;
     border-bottom: 1px solid #d6d6d6;
 }
+/*Month Year*/
  
 .ui-datepicker-title { 
     text-align: center; 
@@ -121,6 +212,47 @@ footer {
     color: #a8a8a8;
     font-size: 3em;
 }
+/*Next Prev Month*/
+
+.ui-datepicker-next span{
+background: center/cover no-repeat url("../icon/arrow-right.png");
+}
+.ui-datepicker-prev span{
+background: center/cover no-repeat url("../icon/arrowright2.png");
+}
+.ui-datepicker-prev span, 
+.ui-datepicker-next span{
+    margin-top: 0.05em;
+    color: rgba(0,0,0,0);
+    display: block ;
+    width: 1.5em;
+    height: 1.5em;
+    text-indent: -9999px;
+    z-index: 999;
+    position: relative;
+}
+
+
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+    position: absolute;
+    font-size: 2em;
+    color: rgba(200,200,200, 0.8);
+    padding: 5px;
+    cursor: pointer;
+}
+ 
+.ui-datepicker-prev {
+    left: 0;
+    padding-left: 0;
+}
+ 
+.ui-datepicker-next {
+    right: 0;
+    padding-right: 0;
+}
+
 
 /* calendar body */
 .ui-datepicker-calendar th {
@@ -130,31 +262,90 @@ footer {
     text-align: center;
     font-weight: normal;
     color: #a8a8a8;
+
+    z-index: 1;
 }
 
 .ui-datepicker-calendar td {
-    padding: 70px 70px;
+    padding: 4.5em 4.5em;
     border: 1px solid rgb(200,200,200,0.7);
     text-align: center;
-    line-height: 26px;
+    /*line-height: 26px;*/
+
+    z-index: 1;
 }
  
 .ui-datepicker-calendar .ui-state-default {
     display: block;
-    width: 26px;
+
     outline: none;
  
     text-decoration: none;
     color: #a8a8a8;
  
     border: 1px solid transparent;
+    z-index: 1;
 }
 
 .ui-datepicker-calendar .ui-state-active {
     color: #6a9113;
     border: 1px solid #6a9113;
+    z-index: 1;
+
 }
  
 .ui-datepicker-other-month .ui-state-default { 
     color: #565656; 
+    z-index: 1;
+    position: relative;
+
 }
+
+#thumbnail {
+  width: 8em;
+  height: 8em;
+  background: center/cover no-repeat;
+  
+  z-index: -1;
+  /*position: relative;*/
+}
+
+td > img {
+  list-style: none;
+  display: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider li {
+  list-style: none;
+  display: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+}
+
+@media screen and (max-width:768px){
+    body{
+      font-size: 12px;
+    }
+  }/*mediaquery 768 end*/
+
+@media screen and (max-width:576px){
+    body{
+      font-size: 9px;
+    }
+  }/*mediaquery 768 end*/
+
+@media screen and (max-width:400px){
+    body{
+      font-size: 5px;
+    }
+  }/*mediaquery 768 end*/
